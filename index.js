@@ -6,47 +6,34 @@ const trawlingweb = {
   token: '',
   query (query, options) {
     return new Promise((resolve, reject) => {
-      if (!query) reject('No query recibed')
+      if (!query) reject('No request found.')
       else {
-        if (query.includes('api.trawlingweb.com')) {
-          axios.get(query)
-            .then((response) => {
-              if (response.data.response.next) trawlingweb.nexturl = response.data.response.next
-              else delete(trawlingweb.nexturl)
-              resolve(response.data.response)
+        var url
+        if (query.includes('://api.trawlingweb.com')) url = query
+        else {
+          var protocol = 'https'
+          if (options && options.protocol) {
+            protocol = options.protocol
+            delete(options.protocol)
+          }
+          url = `${protocol}://api.trawlingweb.com/?token=${trawlingweb.token}&q=${query}`
+          if (options !== undefined) {
+            Object.keys(options).forEach((key) => {
+              url += `&${key}=${options[key]}`
             })
-            .catch((error) => {
-              reject(error.response)
-            })
-        } else {
-          const protocol = options && options.http? 'https':'https'
-          const url = `${protocol}://api.trawlingweb.com/?token=${trawlingweb.token}&q=${query}`
-          axios.get(url)
-            .then((response) => {
-              if (response.data.response.next) trawlingweb.nexturl = response.data.response.next
-              else delete(trawlingweb.nexturl)
-              resolve(response.data.response)
-            })
-            .catch((error) => {
-              reject(error.response)
-            })
+          }
         }
-      }
-    })
-  },
-  next () {
-    return new Promise((resolve, reject) => {
-      if (trawlingweb.next) {
-        axios.get(trawlingweb.nexturl)
+        console.log(url)
+        axios.get(url)
           .then((response) => {
-            if (response.data.response.next) trawlingweb.nexturl = response.data.response.next
-            else delete(trawlingweb.nexturl)
-            resolve(response.data.response)
+            if (response && response.data && response.data.response) resolve(response.data.response)
+            else resolve(response)
           })
           .catch((error) => {
-            reject(error.response)
+            if (error && error.response) reject(error.response)
+            else reject(error)
           })
-      } else reject({ error: 'No more data' })
+      }
     })
   }
 }

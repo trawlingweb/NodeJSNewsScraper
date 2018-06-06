@@ -16,23 +16,24 @@ npm i trawlingweb
 ### Example:
 
 ```js
-const trawlingweb = require('trawlingweb')
+const trawlingweb = require('../index.js')
+trawlingweb.token = 'ea5DEada4jNERñc644725DEada324jNERñc64472'
 
 const main = async () => {
   var resp
   var finaldata = []
-  trawlingweb.token = 'ea58ad7742681454540de07886bc64472'
 
   try {
     resp = await trawlingweb.query('sanidad AND girona')
+    //resp = await trawlingweb.query('sanidad AND girona', { protocol: 'http', ts: 1522234179571 })
     finaldata = resp.data
   } catch (error) {
     console.log(error)
   }
 
-  while (resp.next) {
+  while (resp && resp.next) {
     try {
-      resp = await trawlingweb.next()
+      resp = await trawlingweb.query(resp.next)
       finaldata = [...finaldata, ...resp.data]
     } catch (error) {
       console.log(error)
@@ -43,6 +44,21 @@ const main = async () => {
 }
 
 main()
+```
+
+
+### Example with params:
+* protocol: "http"/"https"(default)
+* ts: unixtimestamp in ms
+* tsi: unixtimestamp in ms
+* sort: "published"/"crawled"(default)
+* order: "asc"/"desc"(default)
+* format: "xml"/"json"(default)
+
+
+```js
+  resp = await trawlingweb.query('sanidad AND girona', { protocol: 'http', ts: 1522234179571, format: 'xml' })
+  console.log(resp)
 ```
 
 ### MIT License
