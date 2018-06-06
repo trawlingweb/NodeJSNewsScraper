@@ -23,15 +23,14 @@ npm i trawlingweb
 ### Example:
 
 ```js
-const trawlingweb = require('trawlingweb')
-trawlingweb.token = 'ea5DEada4jNERñc644725DEada324jNERñc64472'
+const trawlingweb = require('trawlingweb')('ea5DEada4jNERñc644725DEada324jNERñc64472')
 
 const main = async () => {
   var resp
   var finaldata = []
 
   try {
-    resp = await trawlingweb.query('sanidad AND girona')
+    resp = await trawlingweb('sanidad AND girona')
     finaldata = resp.data
   } catch (error) {
     console.log(error)
@@ -39,7 +38,7 @@ const main = async () => {
 
   while (resp && resp.next) {
     try {
-      resp = await trawlingweb.query(resp.next)
+      resp = await trawlingweb(resp.next)
       finaldata = [...finaldata, ...resp.data]
     } catch (error) {
       console.log(error)
@@ -63,7 +62,7 @@ main()
 
 
 ```js
-  resp = await trawlingweb.query('sanidad AND girona', { protocol: 'http', ts: 1522234179571, format: 'xml' })
+  resp = await trawlingweb('sanidad AND girona', { protocol: 'http', ts: 1522234179571, format: 'xml' })
   console.log(resp)
 ```
 

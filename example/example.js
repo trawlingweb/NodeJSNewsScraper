@@ -1,12 +1,11 @@
-const trawlingweb = require('../index.js')
-trawlingweb.token = 'ea5DEada4jNERñc644725DEada324jNERñc64472'
+const trawlingweb = require('../index.js')('ea5DEada4jNERñc644725DEada324jNERñc64472')
 
 const main = async () => {
   var resp
   var finaldata = []
 
   try {
-    resp = await trawlingweb.query('sanidad AND girona')
+    resp = await trawlingweb('sanidad AND girona')
     finaldata = resp.data
   } catch (error) {
     console.log(error)
@@ -14,7 +13,7 @@ const main = async () => {
 
   while (resp && resp.next) {
     try {
-      resp = await trawlingweb.query(resp.next)
+      resp = await trawlingweb(resp.next)
       finaldata = [...finaldata, ...resp.data]
     } catch (error) {
       console.log(error)

@@ -1,7 +1,7 @@
 {
   "name": "trawlingweb",
-  "version": "1.0.2",
-  "description": "Trawlingweb client for Javascript",
+  "version": "1.0.3",
+  "description": "Official Javascript Trawlingweb client for Backend and Frontend",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,7 +15,8 @@
     "scrapping",
     "news",
     "api",
-    "webservice"
+    "webservice",
+    "crawler"
   ],
   "author": "Josep Subils <js@anpro21.com>",
   "license": "MIT",
