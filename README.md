@@ -1,14 +1,20 @@
-# trawlingweb.js
+# trawlingweb
 Official Javascript Trawlingweb client for Backend and Frontend
 
 [https://trawlingweb.com](https://trawlingweb.com)
-
 
 ### Install from npm:
 
 ```sh
 npm i trawlingweb
 ```
+
+### Links:
+[Register](https://trawlingweb.com/dashboard/register)
+[Control Panel](https://trawlingweb.com/dashboard)
+[API documentation](https://trawlingweb.com/dashboard/documentation)
+[Github Repository](https://github.com/anpro21)
+[Npm Repository](https://www.npmjs.com/~anpro21)
 
 ### Example:
 
@@ -50,8 +56,6 @@ main()
 * sort: "published"/"crawled"(default)
 * order: "asc"/"desc"(default)
 * format: "xml"/"json"(default)
-
-[API documentation](https://trawlingweb.com/dashboard/documentation)
 
 
 ```js
