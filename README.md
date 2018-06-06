@@ -1,13 +1,10 @@
-# trawlingweb-javascript
-Trawlingweb client for Javascript
+# trawlingweb.js
+Official Javascript Trawlingweb client for Backend and Frontend
 
-http://trawlingweb.com
+[https://trawlingweb.com](https://trawlingweb.com)
 
-### Explain:
-This system use "axios" library for make a request from "browser" or "backend".
-Functions returns a promise.
 
-### Install:
+### Install from npm:
 
 ```sh
 npm i trawlingweb
@@ -16,7 +13,7 @@ npm i trawlingweb
 ### Example:
 
 ```js
-const trawlingweb = require('../index.js')
+const trawlingweb = require('trawlingweb')
 trawlingweb.token = 'ea5DEada4jNERñc644725DEada324jNERñc64472'
 
 const main = async () => {
@@ -25,7 +22,6 @@ const main = async () => {
 
   try {
     resp = await trawlingweb.query('sanidad AND girona')
-    //resp = await trawlingweb.query('sanidad AND girona', { protocol: 'http', ts: 1522234179571 })
     finaldata = resp.data
   } catch (error) {
     console.log(error)
@@ -54,6 +50,8 @@ main()
 * sort: "published"/"crawled"(default)
 * order: "asc"/"desc"(default)
 * format: "xml"/"json"(default)
+
+[API documentation](https://trawlingweb.com/dashboard/documentation)
 
 
 ```js
