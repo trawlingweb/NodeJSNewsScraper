@@ -11,9 +11,13 @@ npm i trawlingweb
 
 ### Links:
 [Register](https://trawlingweb.com/dashboard/register)
+
 [Control Panel](https://trawlingweb.com/dashboard)
+
 [API documentation](https://trawlingweb.com/dashboard/documentation)
+
 [Github Repository](https://github.com/anpro21)
+
 [Npm Repository](https://www.npmjs.com/~anpro21)
 
 ### Example:
