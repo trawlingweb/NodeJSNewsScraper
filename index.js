@@ -1,5 +1,6 @@
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 const axios = require('axios')
+const VERSION = '1.0.4'
 
 
 const trawlingweb = (token) => {
@@ -22,7 +23,11 @@ const trawlingweb = (token) => {
             })
           }
         }
-        axios.get(url)
+        axios.get(url, {
+          headers: {
+            'User-Agent': `trawlingweb-cli.js ${VERSION}`
+          }
+        })
           .then((response) => {
             if (response && response.data && response.data.response) resolve(response.data.response)
             else resolve(response)
