@@ -59,6 +59,7 @@ main()
 * sort: "published"/"crawled"(default)
 * order: "asc"/"desc"(default)
 * format: "xml"/"json"(default)
+* size: integer(100 default)
 
 
 ```js
