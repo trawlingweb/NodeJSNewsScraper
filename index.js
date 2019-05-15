@@ -56,7 +56,8 @@ const trawlingweb = (token) => {
             if (error && error.response && error.response.status)
               reject({
                 status: error.response.status,
-                error: error.response.statusText
+                error: error.response.statusText,
+                url
               })
             else reject(error)
           })
