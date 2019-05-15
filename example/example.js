@@ -1,4 +1,6 @@
-const trawlingweb = require('../index.js')('ea5DEada4jNERñc644725DEada324jNERñc64472')
+const trawlingweb = require('../index.js')(
+  'd546cfea51346e2ab908de1ba9b0a637d85ab9f2'
+)
 
 const main = async () => {
   var resp
