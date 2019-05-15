@@ -1,9 +1,20 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 const axios = require('axios')
-const VERSION = '1.0.4'
+const VERSION = '1.0.5'
 
+var config
+if (typeof process !== 'undefined' && process.versions != null && process.versions.node != null) {
+  const https = require('https')
+  config = {
+    httpsAgent: new https.Agent({
+      rejectUnauthorized: false
+    })
+  }
+} else config = {}
 
-const trawlingweb = (token) => {
+const client = axios.create(config)
+
+const trawlingweb = token => {
+  if (!token) throw 'No token!'
   const queryfunc = (query, options) => {
     return new Promise((resolve, reject) => {
       if (!query) reject('No request found.')
@@ -14,26 +25,28 @@ const trawlingweb = (token) => {
           var protocol = 'https'
           if (options && options.protocol) {
             protocol = options.protocol
-            delete(options.protocol)
+            delete options.protocol
           }
           url = `${protocol}://api.trawlingweb.com/?token=${token}&q=${query}`
           if (options !== undefined) {
-            Object.keys(options).forEach((key) => {
+            Object.keys(options).forEach(key => {
               url += `&${key}=${options[key]}`
             })
           }
         }
-        axios.get(url, {
-          headers: {
-            'User-Agent': `trawlingweb-cli.js ${VERSION}`
-          }
-        })
-          .then((response) => {
+        client
+          .get(url, {
+            headers: {
+              'User-Agent': `trawlingweb-cli.js ${VERSION}`
+            }
+          })
+          .then(response => {
             if (response && response.data && response.data.response) resolve(response.data.response)
             else resolve(response)
           })
-          .catch((error) => {
-            if (error && error.response && error.response.status) reject({ status: error.response.status, error: error.response.statusText })
+          .catch(error => {
+            if (error && error.response && error.response.status)
+              reject({ status: error.response.status, error: error.response.statusText })
             else reject(error)
           })
       }
