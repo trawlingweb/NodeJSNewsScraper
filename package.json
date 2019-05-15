@@ -1,6 +1,6 @@
 {
   "name": "trawlingweb",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Official Javascript Trawlingweb client for Backend and Frontend",
   "main": "index.js",
   "scripts": {
