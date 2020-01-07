@@ -1,13 +1,12 @@
-const trawlingweb = require('../index.js')(
-  'd546cfea51346e2ab908de1ba9b0a637d85ab9f2'
-)
+const trawlingweb = require('../index.js')
+const trw = trawlingweb('d546cfea51346e2ab908de1ba9b0a637d85ab9f2')
 
 const main = async () => {
   var resp
   var finaldata = []
 
   try {
-    resp = await trawlingweb('sanidad AND girona')
+    resp = await trw('sanidad AND girona')
     finaldata = resp.data
   } catch (error) {
     console.log(error)
@@ -15,8 +14,8 @@ const main = async () => {
 
   while (resp && resp.next) {
     try {
-      resp = await trawlingweb(resp.next)
-      finaldata = [...finaldata, ...resp.data]
+      resp = await trw(resp.next)
+      finaldata = [ ...finaldata, ...resp.data ]
     } catch (error) {
       console.log(error)
     }

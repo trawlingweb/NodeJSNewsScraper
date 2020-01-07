@@ -1,6 +1,6 @@
 {
   "name": "trawlingweb",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Official Javascript Trawlingweb client for Backend and Frontend",
   "main": "index.js",
   "scripts": {
@@ -10,14 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/anpro21/trawlingweb.js.git"
   },
-  "keywords": [
-    "parser",
-    "scrapping",
-    "news",
-    "api",
-    "webservice",
-    "crawler"
-  ],
+  "keywords": [ "parser", "scrapping", "news", "api", "webservice", "crawler" ],
   "author": "Josep Subils <js@anpro21.com>",
   "license": "MIT",
   "bugs": {
@@ -25,6 +18,6 @@
   },
   "homepage": "https://www.trawlingweb.com",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.19.0"
   }
 }
