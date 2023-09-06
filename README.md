@@ -1,4 +1,5 @@
 # trawlingweb
+
 Official Javascript Trawlingweb client for Node.js and Browser
 
 [https://trawlingweb.com](https://trawlingweb.com)
@@ -10,15 +11,16 @@ npm i trawlingweb
 ```
 
 ### Links:
-[Register](https://trawlingweb.com/dashboard/register)
 
-[Control Panel](https://trawlingweb.com/dashboard)
+[Register](https://dashboard.trawlingweb.com/register)
+
+[Control Panel](https://dashboard.trawlingweb.com/)
 
 [API documentation](https://trawlingweb.com/dashboard/documentation)
 
-[Github Repository](https://github.com/anpro21)
+[Github Repository](https://github.com/trawlingweb)
 
-[Npm Repository](https://www.npmjs.com/~anpro21)
+[Npm Repository](https://www.npmjs.com/package/trawlingweb)
 
 ### Example:
 
@@ -52,25 +54,24 @@ const main = async () => {
 main()
 ```
 
-
 ### Example with params:
-* protocol: "http"/"https"(default)
-* ts: unixtimestamp in ms
-* tsi: unixtimestamp in ms
-* sort: "published"/"crawled"(default)
-* order: "asc"/"desc"(default)
-* format: "xml"/"json"(default)
-* size: integer(100 default)
 
+- protocol: "http"/"https"(default)
+- ts: unixtimestamp in ms
+- tsi: unixtimestamp in ms
+- sort: "published"/"crawled"(default)
+- order: "asc"/"desc"(default)
+- format: "xml"/"json"(default)
+- size: integer(100 default)
 
 ```js
-  resp = await trw('sanidad AND girona', { protocol: 'http', ts: 1522234179571, format: 'xml' })
-  console.log(resp)
+resp = await trw('sanidad AND girona', { protocol: 'http', ts: 1522234179571, format: 'xml' })
+console.log(resp)
 ```
 
 ### MIT License
 
-Copyright (c) 2018 Anpro21
+Copyright (c) 2023 Trawlingweb
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

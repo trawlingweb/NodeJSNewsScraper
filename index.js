@@ -1,5 +1,5 @@
 const axios = require('axios')
-const VERSION = '1.0.9'
+const VERSION = '1.0.10'
 
 var config
 if (typeof process !== 'undefined' && process.versions != null && process.versions.node != null) {
