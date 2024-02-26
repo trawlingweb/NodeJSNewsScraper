@@ -7,7 +7,7 @@ GlobalNewsFetcher-NodeJS es una potente biblioteca de Node.js diseñada para sim
 ## Características
 
 - Integración fácil con proyectos basados en Node.js.
-- Acceso a una vasta colección de noticias de diversas fuentes globales.
+- Acceso a noticias de 18 millones de fuentes de 92 países en 43 idiomas, para una cobertura global y diversa.
 - Herramientas ETL para capturar, procesar y cargar datos de noticias.
 - Soporte para personalización avanzada en la recolección de noticias.
 
@@ -90,7 +90,7 @@ GlobalNewsFetcher-NodeJS is a powerful Node.js library designed to streamline th
 ## Features
 
 - Easy integration with Node.js projects.
-- Access to a vast array of global news sources.
+- Access to news from 18 million sources across 92 countries in 43 languages, ensuring broad and diverse global coverage.
 - ETL tools for capturing, processing, and loading news data.
 - Support for advanced customization in news collection.
 
