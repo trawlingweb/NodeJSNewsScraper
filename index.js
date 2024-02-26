@@ -15,7 +15,7 @@ const client = axios.create(config)
 
 const trawlingweb = token => {
   if (!token) throw 'No token!'
-  const queryfunc = (query, options) => {
+  const queryfunc = (query, options) => {  //Query segun sintaxi de LUCENE https://lucene.apache.org/core/2_9_4/queryparsersyntax.html#Boolean%20operators
     return new Promise((resolve, reject) => {
       if (!query) reject('No request found.')
       else {
