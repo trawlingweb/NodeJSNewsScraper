@@ -27,7 +27,7 @@ const trawlingweb = token => {
             protocol = options.protocol
             delete options.protocol
           }
-          url = `${protocol}://api.trawlingweb.com/?token=${token}&q=${encodeURIComponent(query)}`
+          url = `${protocol}://api.trawlingweb.com/?token=${token}&q=${encodeURIComponent(query)}` //Tu API Token de Trawlingweb disponible en https://www.trawlingweb.com
           if (options !== undefined) {
             Object.keys(options).forEach(key => {
               url += `&${key}=${options[key]}`
